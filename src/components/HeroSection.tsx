@@ -24,7 +24,7 @@ export function HeroSection() {
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink leading-[1.15] tracking-tight">
               Websites that <span className="text-primary">look good</span>.
               <br />
-              And work <span className="text-primary">even better</span>.
+              And work <span className="text-orange">even better</span>.
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-ink-soft leading-relaxed max-w-xl mx-auto lg:mx-0">

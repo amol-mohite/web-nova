@@ -52,7 +52,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background/85 backdrop-blur-md border-b border-slate-soft/50 py-3'
+          ? 'bg-gradient-to-r from-primary/95 to-teal/95 backdrop-blur-md border-b border-white/10 py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -60,12 +60,12 @@ export function Navbar() {
         <Link
           to="/"
           onClick={() => setMenuOpen(false)}
-          className="flex items-center gap-2 font-display font-bold text-lg text-ink"
+          className={`flex items-center gap-2 font-display font-bold text-lg transition-colors duration-300 ${scrolled ? 'text-white' : 'text-ink'}`}
         >
           {config?.logo_url ? (
             <img src={config.logo_url} alt={config.brand_name} className="h-8 w-auto object-contain" />
           ) : (
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-white text-sm font-bold">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-teal text-white text-sm font-bold">
               {brandInitial}
             </span>
           )}
@@ -77,7 +77,11 @@ export function Navbar() {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="px-4 py-2 text-sm font-medium text-ink-soft hover:text-primary transition-colors duration-200 rounded-lg hover:bg-primary/8"
+              className={`px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
+                scrolled
+                  ? 'text-white/80 hover:text-white hover:bg-white/10'
+                  : 'text-ink-soft hover:text-primary hover:bg-primary/8'
+              }`}
             >
               {link.label}
             </button>
@@ -87,18 +91,22 @@ export function Navbar() {
         <div className="hidden lg:block">
           <button
             onClick={openContact}
-            className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 active:scale-95"
+            className={`px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 active:scale-95 ${
+              scrolled
+                ? 'bg-white text-primary hover:bg-white/90 hover:shadow-lg'
+                : 'bg-gradient-to-r from-primary to-teal text-white hover:opacity-90 hover:shadow-lg hover:shadow-primary/20'
+            }`}
           >
             Connect Now
           </button>
         </div>
 
-        <button
-          className="lg:hidden p-2 text-ink"
+          <button
+          className="lg:hidden p-2 transition-colors duration-300"
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
-          <Menu className="w-6 h-6" />
+          <Menu className={`w-6 h-6 ${scrolled ? 'text-white' : 'text-ink'}`} />
         </button>
       </nav>
 
@@ -142,7 +150,7 @@ export function Navbar() {
               setMenuOpen(false);
               openContact();
             }}
-            className="mt-6 w-full px-5 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors duration-300"
+            className="mt-6 w-full px-5 py-3 bg-gradient-to-r from-primary to-teal text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-300"
           >
             Connect Now
           </button>

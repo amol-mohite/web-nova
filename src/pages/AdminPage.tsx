@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
 import { useSiteData } from '@/context/SiteDataContext';
@@ -479,7 +479,7 @@ function EnquiriesManager() {
     setLoading(false);
   };
 
-  useState(() => { load(); });
+  useEffect(() => { load(); }, []);
 
   const updateStatus = async (table: string, id: string, status: string) => {
     await supabase.from(table).update({ status }).eq('id', id);
