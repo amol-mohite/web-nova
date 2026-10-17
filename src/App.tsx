@@ -7,6 +7,7 @@ import { PublicLayout } from '@/components/PublicLayout';
 import { HomePage } from '@/pages/HomePage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { ServiceDetailPage } from '@/pages/ServiceDetailPage';
+import { WorkPage } from '@/pages/WorkPage';
 import { AdminPage } from '@/pages/AdminPage';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/services/:slug" element={<ServiceDetailPage />} />
+                <Route path="/work" element={<WorkPage />} />
               </Route>
               <Route path="/admin" element={<AdminPage />} />
             </Routes>
